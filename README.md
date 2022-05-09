@@ -1,11 +1,7 @@
-## scrapper.py
-This file contains the code written in selenium.
+#Updated:
 
-## req_scrape.py 
-This file contains the code written in request and BeautifulSoup
+Contains the updated code.
 
-## data.json, data1.json
-Output of scrapper.py
+#Other:
 
-## dump.json
-Output of req_scrape.py
+Contains older code written in beautifulsoup and selenium.

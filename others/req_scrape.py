@@ -9,18 +9,23 @@ print(categories)
 print("====================================")
 cat = input("Select a category from about you want to hear for: ")
 
-with open("dump.json","w") as f:
+value = ""
+
+with open("dump.json","a") as f:
     json.dump([],f)
 
 def write_json(new_data, filename='dump.json'):
     with open(filename,'r+') as file:
         file_data = json.load(file)
-        file_data.append(new_data)
-        file.seek(0)
-        json.dump(file_data, file, indent = 4)
+        if not value in file_data:
+            file_data.append(new_data)
+            file.seek(0)
+            json.dump(file_data, file, indent = 4)
+        else:
+            print("data already exists.")
 
 def main_request():
-    for page in range(1,30):
+    for page in range(1,5):
         url = 'https://thehimalayantimes.com/morearticles/{0}?pgno='.format(cat)
 
         r = requests.get(url+str(page))
@@ -42,6 +47,7 @@ def main_request():
                     'Type':type
                 }
                 print(info)
+
                 write_json({
                         'Title': title,
                     'Desc': desc,
