@@ -56,7 +56,7 @@ def parse_news(url):
 def main():
     results = []
     #Testing for 3 pages.
-    for x in range(755,757):
+    for x in range(1,4):
         print("Current Page: ",x)
         urls = get_links(x)
         if urls:
